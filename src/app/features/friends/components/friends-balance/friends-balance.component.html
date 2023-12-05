@@ -1,0 +1,38 @@
+<p>friends-balance works!</p>
+
+<article>
+    <div class="card-container">
+        <div class="card">
+            @if (friends().length != 0) {
+            <table>
+                @for (friend of friends(); track $index) 
+                {
+                    <tr (mouseenter)="setPayments(friend)" (mouseleave)="clearPayments()">
+                        <td>{{friend.name}}</td>
+                        <td>{{getBalance(friend)}}</td>
+                    </tr>
+                }
+            </table>
+        } @else {
+            <p>Ningún amigo!</p>
+        }
+        </div>
+        @if (friendPayments().length != 0) {
+            <div class="card">
+                <table>
+                    @for (payment of friendPayments(); track $index) {
+                        <tr>
+                            <td>{{getCostDescription(payment.costID)}}</td>
+                            <td>{{payment.cost.toFixed(2)}}</td>
+                            <td>{{payment.payed ? 'pagado' : 'pendiente'}}</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        } @else if (selectedFriend != '') {
+            <div class="card">
+                <p>{{selectedFriend}} tiene sus pagos al día</p>
+            </div>
+        }
+    </div>
+</article>

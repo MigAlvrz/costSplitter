@@ -1,0 +1,29 @@
+
+  .modal-container {
+    input {
+        width: 97.1%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+  }
+
+  .table-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .friends-table {
+    margin-top: 20px;
+    width: 50%;
+    border-collapse: collapse;
+  }
+

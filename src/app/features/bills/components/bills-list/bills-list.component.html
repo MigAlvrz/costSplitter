@@ -1,0 +1,15 @@
+<p>bills-list works!</p>
+<main class="card-container">
+@for (cost of costs(); track $index) {
+    <div class="card">
+        <h3>{{cost.description}}</h3>
+        <p>{{convertDate(cost.date)}}</p>
+        <div>
+            <p>{{cost.payer}}</p>
+            <p>{{cost.totalCost}}</p>
+        </div>
+    </div>
+} @empty {
+    <p>No costs!</p>
+}
+</main>

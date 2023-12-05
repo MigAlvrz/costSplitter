@@ -1,0 +1,39 @@
+<button (click)="toggleModal()">Añadir pago</button>
+@if (this.isModalOpen) {
+<div class="overlay" (click)="toggleModal()">
+    <article class="modal-container" (click)="preventToggle($event)">
+        <div>
+            <input type="text" placeholder="Añada una descripción"  [(ngModel)]="description">
+            <input type="number" placeholder="coste total" [(ngModel)]="amount">
+            <select [(ngModel)]="payer" >
+                <option value="-1" disabled selected>Seleccione un pagador</option>
+                @for (friend of friends; track $index) {
+                    <option value={{friend.name}}>{{friend.name}}</option>
+                }
+            </select>
+            <input type="date" [(ngModel)]="date">
+            <div class="table-container">
+                <table class="friends-table">
+                    @for (friend of this.friends; track $index) {
+                        <tr>
+                            <td>
+                                <span>{{friend.name}}</span>
+                            </td>
+                            <td>
+                                <input class="checkbox" type="checkbox" 
+                                (change)="checkedPayed($index)"                                
+                                [checked]="friend.name === payer" 
+                                [disabled]="friend.name === payer" >
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            @if (this.errorMessage) {
+                <p>{{this.errorMessage}}</p>
+            }
+            <button (click)="addNewPayment()">Añadir</button>
+        </div>
+    </article>
+</div>
+}
