@@ -62,7 +62,6 @@ describe('CostsService', () => {
   });
 
   it('should process payments correctly', () => {
-    // Assuming you have a few friends and costs to work with
     friendsService.friends = [
       {name : "Pepe Perez", payments: []} as Ifriend,
       {name : "Jose Perez", payments: []} as Ifriend
@@ -77,7 +76,6 @@ describe('CostsService', () => {
     costsService.addCost(totalCost, 'Test cost', payer, new Date(), []);
 
     const friends = friendsService.getFriends()
-    console.log(costsService.getCosts());
     
     const addedCost = costsService.getCosts().filter((c: Icost) => c.id === costsService.getCosts().length-1);
     

@@ -12,12 +12,12 @@ import { NewFriendComponent } from "../../../friends/components/new-friend/new-f
     imports: [NewBillComponent, NewFriendComponent]
 })
 export class BillsListComponent {
-  costs = signal<Icost[]>([])
+  costs : Icost[] = []
 
   constructor(private costsService : CostsService) {}
 
   ngOnInit() {
-    this.costs.set(this.costsService.orderCostsByDate());
+    this.costs = this.costsService.orderCostsByDate();
   }
 
   convertDate = (date: Date) => {
