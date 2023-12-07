@@ -4,7 +4,7 @@
     <article class="modal-container" (click)="preventToggle($event)">
         <div>
             <input type="text" placeholder="Nombre del amigo"  [(ngModel)]="name">
-            <button (click)="addNewFriend()">Añadir</button>
+            <button (click)="addNewFriend(name)">Añadir</button>
             @if (this.errorMessage) {
                 <p>{{this.errorMessage}}</p>
             }
