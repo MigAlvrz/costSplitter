@@ -1,8 +1,8 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { Icost } from '../../../../core/interfaces/Icost';
-import { CostsService } from '../../../../core/services/costs.service';
 import { NewBillComponent } from "../new-bill/new-bill.component";
-import { NewFriendComponent } from "../../../friends/components/new-friend/new-friend.component";
+import { CostsService } from '../../../../../core/services/costs.service';
+import { Icost } from '../../../../../core/interfaces/Icost';
+import { NewFriendComponent } from '../../../friends/features/new-friend/new-friend.component';
 
 @Component({
     selector: 'app-bills-list',

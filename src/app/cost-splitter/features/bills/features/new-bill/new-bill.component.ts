@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Ifriend } from '../../../../core/interfaces/Ifriend';
-import { FriendsService } from '../../../../core/services/friends.service';
-import { CostsService } from '../../../../core/services/costs.service';
 import { FormsModule } from '@angular/forms';
+import { Ifriend } from '../../../../../core/interfaces/Ifriend';
+import { FriendsService } from '../../../../../core/services/friends.service';
+import { CostsService } from '../../../../../core/services/costs.service';
 
 @Component({
   selector: 'app-new-bill',

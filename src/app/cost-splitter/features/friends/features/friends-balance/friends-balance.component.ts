@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
-import { FriendsService } from '../../../../core/services/friends.service';
-import { Ifriend, Ipayment } from '../../../../core/interfaces/Ifriend';
-import { CostsService } from '../../../../core/services/costs.service';
+import { Ifriend, Ipayment } from '../../../../../core/interfaces/Ifriend';
+import { FriendsService } from '../../../../../core/services/friends.service';
+import { CostsService } from '../../../../../core/services/costs.service';
 
 @Component({
   selector: 'app-friends-balance',

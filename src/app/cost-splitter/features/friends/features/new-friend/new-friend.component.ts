@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { FriendsService } from '../../../../core/services/friends.service';
-import { CostsService } from '../../../../core/services/costs.service';
+import { FriendsService } from '../../../../../core/services/friends.service';
+import { CostsService } from '../../../../../core/services/costs.service';
 
 @Component({
   selector: 'app-new-friend',
@@ -19,7 +19,6 @@ export class NewFriendComponent {
 
   toggleModal = (): void => {
     this.isModalOpen = !this.isModalOpen
-    this.name = undefined;
     }
 
   preventToggle = (event: Event): void => {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NewBillComponent } from "../../../features/bills/components/new-bill/new-bill.component";
-import { NewFriendComponent } from "../../../features/friends/components/new-friend/new-friend.component";
+import { NewBillComponent } from '../../../cost-splitter/features/bills/features/new-bill/new-bill.component';
+import { NewFriendComponent } from '../../../cost-splitter/features/friends/features/new-friend/new-friend.component';
 
 @Component({
     selector: 'app-header',
