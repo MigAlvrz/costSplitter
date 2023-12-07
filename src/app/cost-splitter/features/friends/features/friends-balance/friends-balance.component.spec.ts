@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FriendsBalanceComponent } from './friends-balance.component';
-import { FriendsService } from '../../../../core/services/friends.service';
-import { CostsService } from '../../../../core/services/costs.service';
-import { Ifriend, Ipayment } from '../../../../core/interfaces/Ifriend';
+import { FriendsService } from '../../../../../core/services/friends.service';
+import { CostsService } from '../../../../../core/services/costs.service';
+import { Ifriend, Ipayment } from '../../../../../core/interfaces/Ifriend';
 
 describe('FriendsBalanceComponent', () => {
   let component: FriendsBalanceComponent;

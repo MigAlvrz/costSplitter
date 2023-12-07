@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed, tick } from '@angular/core/testing';
 
 import { NewFriendComponent } from './new-friend.component';
-import { FriendsService } from '../../../../core/services/friends.service';
-import { CostsService } from '../../../../core/services/costs.service';
+
 import { FormsModule } from '@angular/forms';
-import { By } from '@angular/platform-browser';
+import { FriendsService } from '../../../../../core/services/friends.service';
+import { CostsService } from '../../../../../core/services/costs.service';
 
 describe('NewFriendComponent', () => {
   let component: NewFriendComponent;

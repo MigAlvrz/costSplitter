@@ -1,10 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BillsListComponent } from './bills-list.component';
-import { CostsService } from '../../../../core/services/costs.service';
-import { Icost } from '../../../../core/interfaces/Icost';
-import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
+import { CostsService } from '../../../../../core/services/costs.service';
+
 
 describe('BillsListComponent', () => {
   let component: BillsListComponent;
@@ -74,7 +72,7 @@ describe('BillsListComponent', () => {
       expect(result).toEqual('Hace 1 horas')
     })
 
-    it('should display "Hace 1 días" for a date 1 day ago', () => {
+    it('should display "Hace 1 día(s)" for a date 1 day ago', () => {
       const currentDate = new Date()
       const pastDate = new Date(currentDate.getTime() - 86400000)
       const result = component.convertDate(pastDate)

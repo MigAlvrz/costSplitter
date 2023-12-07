@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewBillComponent } from './new-bill.component';
-import { FriendsService } from '../../../../core/services/friends.service';
-import { CostsService } from '../../../../core/services/costs.service';
+import { FriendsService } from '../../../../../core/services/friends.service';
+import { CostsService } from '../../../../../core/services/costs.service';
 
 describe('NewBillComponent', () => {
   let component: NewBillComponent;
@@ -45,7 +45,7 @@ describe('NewBillComponent', () => {
     expect(overlayOff).toBeNull()
   })
 
-  it('should prevent the overlay to dissapear when content inside modal container is clicked', () => {
+  it('should prevent the overlay from dissapear when the modal container itself is clicked', () => {
     component.isModalOpen = true
     fixture.detectChanges()
     spyOn(component, 'preventToggle')
@@ -54,7 +54,24 @@ describe('NewBillComponent', () => {
     expect(component.preventToggle).toHaveBeenCalled()
   });
 
-  it('should set an error message when any condition for adding a payment is not met', () => {
+  it('should call services and toggleModal when all the fields are filled', () => {
+    let friendsService: FriendsService = TestBed.inject(FriendsService)
+    let costsService: CostsService = TestBed.inject(CostsService)
+    component.amount = '10'
+    component.description = 'Fake Payment'
+    component.payer = '1'
+    component.date = '2023-01-01'
+    component.friendsThatPayed = [];
+    spyOn(costsService, 'getCosts').and.returnValue([])
+    spyOn(costsService, 'addCost')
+    spyOn(friendsService, 'orderFriendsByBalance')
+    spyOn(component, 'toggleModal')
+    component.addNewPayment()
+    expect(component.errorMessage).toBeFalsy();
+    expect(costsService.addCost).toHaveBeenCalledOnceWith(10, 'Fake Payment', '1', jasmine.any(Date), []);
+  });
+
+  it('should set an error message when any of the fields for adding a payment is not filled', () => {
     let friendsService: FriendsService = TestBed.inject(FriendsService)
     let costsService: CostsService = TestBed.inject(CostsService)
   
