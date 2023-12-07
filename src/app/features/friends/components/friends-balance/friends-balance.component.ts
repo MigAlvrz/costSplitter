@@ -13,7 +13,7 @@ import { CostsService } from '../../../../core/services/costs.service';
 export class FriendsBalanceComponent {
   friends = signal<Ifriend[]>([])
   friendPayments = signal<Ipayment[]>([])
-  selectedFriend : string = '';
+  selectedFriend : Ifriend | undefined = undefined;
 
   constructor(private friendsService: FriendsService, private costsService: CostsService) {}
 
@@ -35,11 +35,11 @@ export class FriendsBalanceComponent {
 
   setPayments = (friend: Ifriend) : void => {
     this.friendPayments.set(friend.payments.filter((payment: Ipayment) => !payment.payed));
-    this.selectedFriend = friend.name;
+    this.selectedFriend = friend;
   }
 
   clearPayments = () : void => {
     this.friendPayments.set([]);
-    this.selectedFriend = ''
+    this.selectedFriend = undefined
   }
 }

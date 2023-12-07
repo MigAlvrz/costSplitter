@@ -1,7 +1,39 @@
 .card { 
-    width: 390px;
+    width: 405px;
 }
 
 article {
     margin-top: 20px;
 }
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px; 
+
+    tr {
+        border-bottom: 1px solid #ddd;
+    }
+      
+    td {
+        padding: 8px;
+        &:nth-child(2) {
+            font-weight: bold;
+            color: #3498db;
+        }
+    
+        &:nth-child(3) {
+            color: #c0392b;
+            font-weight: bold;
+        }
+    
+        &:hover {
+            background-color: #f5f5f5;
+        }
+        
+      }
+  }
+  
+
+ 
