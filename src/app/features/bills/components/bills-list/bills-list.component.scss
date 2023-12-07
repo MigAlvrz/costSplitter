@@ -1,1 +1,26 @@
-
+.card {
+    h3 {
+        margin: 0;
+        margin-bottom: 8px; 
+        font-size: 1.2em; 
+      }
+      
+    .date {
+        color: #777; 
+        margin-bottom: 8px; 
+      }
+      
+    .content {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px; 
+      }
+      
+    p {
+        margin: 0; 
+      }
+      
+    .payer {
+        font-weight: bold; 
+      }
+}

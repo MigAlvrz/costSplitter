@@ -11,7 +11,6 @@ import { CostsService } from '../../../../core/services/costs.service';
   styleUrl: './new-friend.component.scss'
 })
 export class NewFriendComponent {
-
   isModalOpen: boolean = false;
   errorMessage: string | undefined;
   name: string | undefined;
@@ -23,16 +22,16 @@ export class NewFriendComponent {
     this.name = undefined;
     }
 
-    preventToggle = (event: Event): void => {
+  preventToggle = (event: Event): void => {
       event.stopPropagation()
-    }
+  }
     
-    addNewFriend = () => {
-      if (this.name) {
-        this.friendService.addFriend(this.name, this.costsService.getCosts())
+  addNewFriend = (name?: string) => {
+    if (name) {
+        this.friendService.addFriend(name, this.costsService.getCosts())
         this.toggleModal()
-      } else {
+    } else {
         this.errorMessage = "Por favor, introduce el nombre de tu amigo"
-      }
-    } 
+    }
+  } 
 }

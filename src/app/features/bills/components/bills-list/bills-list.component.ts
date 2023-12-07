@@ -12,12 +12,12 @@ import { NewFriendComponent } from "../../../friends/components/new-friend/new-f
     imports: [NewBillComponent, NewFriendComponent]
 })
 export class BillsListComponent {
-  costs : Icost[] = []
+  costs = signal<Icost[]>([])
 
   constructor(private costsService : CostsService) {}
 
   ngOnInit() {
-    this.costs = this.costsService.orderCostsByDate();
+    this.costs.set(this.costsService.orderCostsByDate());
   }
 
   convertDate = (date: Date) => {
@@ -28,7 +28,7 @@ export class BillsListComponent {
     const days = Math.floor(hours / 24);
     
     if (days > 0) {
-      return `Hace ${days} días`
+      return `Hace ${days} día(s)`
     } else if (hours > 0) {
       return `Hace ${hours} horas`
     } else if (mins > 0) {

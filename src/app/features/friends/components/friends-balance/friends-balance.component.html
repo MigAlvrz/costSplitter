@@ -1,35 +1,36 @@
 <article>
     <div class="card-container">
         <div class="card">
+            <h3>Balance: </h3>
             @if (friends().length != 0) {
             <table>
                 @for (friend of friends(); track $index) 
                 {
                     <tr (mouseenter)="setPayments(friend)" (mouseleave)="clearPayments()">
                         <td>{{friend.name}}</td>
-                        <td>{{getBalance(friend)}}</td>
+                        <td>{{getBalance(friend)}}€</td>
                     </tr>
                 }
             </table>
         } @else {
-            <p>Ningún amigo!</p>
+            <p>No hay ningún amigo... Aun!</p>
         }
         </div>
-        @if (friendPayments().length != 0) {
+        @if (friendPayments().length != 0 && selectedFriend && getBalance(selectedFriend) != 0) {
             <div class="card">
                 <table>
                     @for (payment of friendPayments(); track $index) {
                         <tr>
                             <td>{{getCostDescription(payment.costID)}}</td>
-                            <td>{{payment.cost.toFixed(2)}}</td>
+                            <td>{{payment.cost.toFixed(2)}}€ --> {{payment.reciver}}</td>
                             <td>{{payment.payed ? 'pagado' : 'pendiente'}}</td>
                         </tr>
                     }
                 </table>
             </div>
-        } @else if (selectedFriend != '') {
+        } @else if (selectedFriend && getBalance(selectedFriend) == 0) {
             <div class="card">
-                <td>{{selectedFriend}} tiene sus pagos al día</td>
+                <td>{{selectedFriend?.name}} tiene sus pagos al día</td>
             </div>
         }
     </div>
